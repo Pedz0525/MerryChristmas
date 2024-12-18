@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #1a472a;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.text-wrapper {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.merry {
+    color: #ff0000;
+    margin-bottom: 10px;
+}
+
+.merry span {
+    color: #ff0000;
+    font-size: 4rem;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+    display: inline-block;
+    font-weight: bold;
+    animation: bounce 2s infinite;
+}
+
+.message span {
+    font-size: 3rem;
+    display: inline-block;
+    font-weight: bold;
+    animation: bounce 2s infinite;
+}
+
+.merry span:nth-child(even) {
+    color: #00ff00;
+}
+
+.message span:nth-child(even) {
+    color: #ffffff;
+}
+
+.snowflakes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .merry span {
+        font-size: 3rem;
+    }
+    .message span {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .merry span {
+        font-size: 2rem;
+    }
+    .message span {
+        font-size: 1.5rem;
+    }
+}
+
+/* Make letters bounce at different times */
+.merry span:nth-child(3n) {
+    animation-delay: 0.2s;
+}
+
+.merry span:nth-child(3n+1) {
+    animation-delay: 0.4s;
+}
+
+.message span:nth-child(3n) {
+    animation-delay: 0.6s;
+}
+
+.message span:nth-child(3n+1) {
+    animation-delay: 0.8s;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+/* Make bounce more energetic */
+.merry span:hover, .message span:hover {
+    animation: bigBounce 0.5s infinite;
+}
+
+@keyframes bigBounce {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-30px) scale(1.2) rotate(10deg);
+    }
+}
